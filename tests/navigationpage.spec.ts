@@ -25,8 +25,6 @@ export class NavigationPage{
 
     }
 
-    async 
-
     private async selectgroupItem(groupItemtitle : string){
         const groupmenuitem = this.page.getByTitle(groupItemtitle)
         const expandedState = await groupmenuitem.getAttribute('area-expanded')

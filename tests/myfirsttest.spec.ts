@@ -3,11 +3,11 @@ import { TIMEOUT } from 'node:dns'
 
 
 test.describe('suite 1',() => {
-// test.beforeEach(async({page}) => {
-//     await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
-//     const url = "https://admin-demo.nopcommerce.com/login?returnUrl=%2Fadmin%2F"
-//     await expect (page).toHaveURL(url)
-// })
+ test.beforeEach(async({page}) => {
+     await page.goto("https://admin-demo.nopcommerce.com/login?returnUrl=%2Fadmin%2F")
+     const url = "https://admin-demo.nopcommerce.com/login?returnUrl=%2Fadmin%2F"
+     await expect (page).toHaveURL(url)
+ })
 
 // test('loggin into orangeHRM',async({page}) => {
 //     await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
@@ -68,24 +68,23 @@ test('assertions',async({page}) => {
    const submitbutton = loginform.getByRole('button',{name : 'Log in'})
    await expect(submitbutton).toHaveText("Log in")
 })
-
+*/
 test('lists and dropdowns',async({page}) => {
    await page.goto("https://practice.expandtesting.com/dropdown")
    const dropdowns = page.locator('#country')
    await dropdowns.click()
    await dropdowns.selectOption('IN')
 })
-*/
+
 test('validate radiobuttons select and unselect',async({page}) => {
     await page.goto("https://www.tutorialspoint.com/selenium/practice/radio-button.php")
-    const select_radiobutton = page.locator('.form-check')
-    await select_radiobutton.getByLabel('Yes').check()
-    await expect(select_radiobutton.isChecked({timeout : 3000})).toBeTruthy()
-    await select_radiobutton.getByLabel('No').check()
-    await expect(select_radiobutton.isChecked({timeout : 5000})).toBeTruthy()
-    
-    
-
+    await page.locator(".form-check-input").first().check()
+    await expect(page.locator(".form-check-input").first()).toBeChecked()
+  //  await expect(select_radiobutton.getByRole('radio',{name:'Yes'})).not.toBeChecked()
+  //  page.waitForTimeout(3000)
+    // await select_radiobutton.getByLabel('No').check()
+    // await expect(select_radiobutton.getByRole('radio',{name:'No'})).toBeChecked()
+    // await expect(select_radiobutton.getByRole('radio',{name:'No'})).not.toBeChecked()
 })
 /*
 test('dialog box',async({page}) => {
@@ -104,16 +103,16 @@ test('dragndropiframe',async({page}) => {
   await frame.locator('li').filter({hasText : 'High Tatras 2'}).click()
 })
 
-test('test 1',async({page}) => {
-  const loginpage = new LoginPage(page)
-  await loginipage.performlogin()
-})
+// test('test 1',async({page}) => {
+//   const loginpage = new LoginPage(page)
+//   await loginipage.performlogin()
+// })
 
-async performLogin(){
-  await this.page.getByRole('textbox',{name : 'email'}).fill('test123@test.com')
-  await this.page.getByRole('textbox',{name : 'Password'}).fill('')
-  await this.page.getByRole('buttons',{name : 'Log in'}).click()
-}
+// async performLogin(){
+//   await this.page.getByRole('textbox',{name : 'email'}).fill('test123@test.com')
+//   await this.page.getByRole('textbox',{name : 'Password'}).fill('')
+//   await this.page.getByRole('buttons',{name : 'Log in'}).click()
+// }
 
 })
 

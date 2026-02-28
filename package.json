@@ -18,7 +18,8 @@
     "undici-types": "^7.16.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.58.1",
-    "@types/node": "^25.2.0"
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.2.0",
+    "allure-playwright": "^3.5.0"
   }
 }
